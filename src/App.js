@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import styled from "@emotion/styled";
+import AuthLayout from "./pages/Auth/AuthLayout";
+import Login from "./pages/Auth/Login";
+import Register from "./pages/Auth/Register";
+import Profile from "./pages/Profile";
+import Fallback from "./pages/Fallback";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <ThemeWrapper>
+          <Routes>
+            <Route element={<AuthLayout />}>
+              <Route path="/" element={<Login />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Route>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<Fallback />} />
+          </Routes>
+        </ThemeWrapper>
+      </BrowserRouter>
+    </>
   );
-}
+};
+
+const ThemeWrapper = styled.div`
+  background-color: #141414;
+  height: 100%;
+`;
 
 export default App;
