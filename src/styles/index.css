@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "netflix-sans";
+  src: url("../../public/font/NetflixSans-Regular.otf");
+  font-display: swap;
+}
